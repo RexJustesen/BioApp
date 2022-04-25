@@ -6,11 +6,11 @@ from chembl_webresource_client.new_client import new_client
 target = new_client.target
 target_query = target.search('E3 ubiquitin ligase')
 targets = pd.DataFrame.from_dict(target_query)
-#assign the fifth entry (which corresponds to the target protein, 
-#coronavirus 3C-like proteinase) to the selected_target variable
+#assign the fourth entry (which corresponds to the target protein, 
+#E3 Ubiquitin Ligase) to the selected_target variable
 selected_target = targets.target_chembl_id[4]
 
-#retrieve only bioactivity data for coronavirus 3C-like proteinase
+#retrieve only bioactivity data for coronavirus E3 Ubiquitin Ligase
 #CHEMBL3927 that are reported as IC50 nanomolar values
 activity = new_client.activity
 res = activity.filter(target_chembl_id=selected_target).filter(standard_type="IC50")
